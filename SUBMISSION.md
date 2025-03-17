@@ -23,9 +23,10 @@
    - Verify the application works as expected
 
 5. **Submit Your Solution**
-   - Email the link to your GitHub repository to: [COMPANY_EMAIL]
-   - Include "[PDF Quiz Generator]" in the subject line
-   - In the email body, briefly introduce yourself and highlight any interesting aspects of your implementation
+   - Create a pull request from your fork to the original repository
+   - Title your PR: "[Your Name] - PDF Quiz Generator"
+   - In the PR description, briefly introduce yourself and highlight any interesting aspects of your implementation
+   - Make sure to reference any issues or requirements addressed
 
 ## Submission Checklist
 
