@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PDF Quiz Generator - Take-Home Assignment
 
-## Getting Started
+## Challenge Overview
+Create a simple web application that allows users to upload PDF documents and generate a quiz based on the content using OpenAI.
 
-First, run the development server:
+## Tech Stack
+This starter project uses Next.js with Tailwind CSS and Shadcn UI components.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Core Requirements
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Minimum Viable Product
+- Upload interface for PDF documents (limit to small files, <10 pages)
+- Generate 5 multiple-choice questions using OpenAI based on PDF content
+- Allow users to answer questions and see their score
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Stretch Goals (if time permits)
+- Support for larger documents
+- Short-answer question types
+- Improved error handling
+- Enhanced visual design
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Implementation Guidelines
+- Focus on creating a working prototype rather than a polished product
+- Use the OpenAI API efficiently (consider extracting key sections rather than sending the entire document)
+- Basic error handling for common cases (invalid PDFs, API failures)
+- Keep the UI simple and functional
 
-## Learn More
+## Resources
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Shadcn UI Documentation](https://ui.shadcn.com)
+- [OpenAI API Documentation](https://platform.openai.com/docs/api-reference)
+- [PDF.js Library](https://mozilla.github.io/pdf.js/) (suggestion for PDF processing)
 
-To learn more about Next.js, take a look at the following resources:
+## Evaluation Criteria
+- Functional completeness of the core features
+- Code organization and clarity
+- Thoughtful API integration
+- Basic user experience considerations
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Timeline
+- Expected completion: 2-3 hours of focused development
+- Deadline: Within 5 days of receiving this assignment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This assignment is designed to demonstrate your approach to problem-solving and integration rather than creating a production-ready application. We're interested in seeing your programming style and how you tackle the essential requirements within the time constraint.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Good luck! We're excited to see your implementation.
