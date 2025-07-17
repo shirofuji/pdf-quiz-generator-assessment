@@ -21,7 +21,12 @@ A web-based tool that parses questions from a PDF file and renders them as inter
    ```bash
    cd /path/to/pdf-quiz-generator-assessment
    ```
-3. Create a `.env` file to setup your OpenAI Credentials
+3. Install project dependencies:
+   ```bash
+   npm install
+   ``` 
+
+4. Create a `.env` file in the base directory to setup your OpenAI Credentials
 
     The contents of the `.env` file should be as follows:
 
@@ -30,9 +35,9 @@ A web-based tool that parses questions from a PDF file and renders them as inter
     OPENAI_API_KEY=your_api_key
     ```
 
-    You can change the model in order to fit the budget.
+    You can change the model in order to fit your budget.
 
-4. Run the project or build and then run
+5. Run the project or build and then run
 
     To run in development mode:
     ```bash
@@ -44,7 +49,7 @@ A web-based tool that parses questions from a PDF file and renders them as inter
     npm run start
     ```
 
-5. Open `http://localhost:3000` in your browser or your configured domain and path for your machine.
+6. Open `http://localhost:3000` in your browser or your configured domain and path for your machine.
 
 ## Technologies Used
 
