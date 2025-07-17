@@ -53,13 +53,14 @@ A web-based tool that parses questions from a PDF file and renders them as inter
 
 ## Approach
 
-- Used pdf-lib to extract pages from the original PDF document
-- Generated chunked versions of the PDF, default is 5 pages per chunk can be updated in the code
-- Each chunk is parsed into plain text via pdf-parse
-- Used a pre-generated prompt with the chunk text appended to generate a question per chunk
+- Used pdf-lib to extract pages from the original PDF document.
+- Generated chunked versions of the PDF, default is 5 pages per chunk can be updated in the code.
+- Each chunk is parsed into plain text via pdf-parse.
+- Used a pre-generated prompt with the chunk text appended to generate a question per chunk.
+- Loops over and over through all chunks available until a total of 5 questions are generated.
 - Prompt is created with a pre-defined json format for the question, choices, and an answer key.
 - Questions are returned to the front-end page to display and create an interactive quiz UI.
-- Used .env file to store OpenAPI Credentials to ensure version control exclusion of sensitive data as well as possible support for multiple environments
+- Used `.env` file to store OpenAPI Credentials to ensure version control exclusion of sensitive data as well as possible support for multiple environments.
 
 ## Known Limitations
 
