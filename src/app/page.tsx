@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
   // create a state to hold the loading state
   const [loading, setLoading] = useState(false);
+  const [score, setScore] = useState(0);
   // define reference for the file input element
   const fileInputRef = useRef<HTMLInputElement>(null);
   // create a function to handle file upload button
@@ -24,6 +25,16 @@ export default function Home() {
       formData.append("file", file);
 
       setLoading(true); // set loading state to true
+      // clear questions container
+      let container = document.getElementById("questions-container");
+      if (!container) {
+        container = document.createElement("div")
+        container.id = "questions-container";
+        document.body.appendChild(container);
+      } else {
+        const clone = container.cloneNode(false); // false = shallow clone
+        container.parentNode?.replaceChild(clone, container);
+      }
       try {
         // send the form data to the API endpoint
         const response = await fetch("/api/upload", {
@@ -41,21 +52,30 @@ export default function Home() {
         
         else {
           setLoading(false); // set loading state to false
-          const questionElement = document.createElement("div");
           // clear the questions container
-          questionElement.innerHTML = 
-            "<p>To answer the questions, simply click the choice you wish to select. Correct answers will be highlighted in green.</p>";
+          const instructions = document.createElement("p");
+          const instructionsText = document.createElement("strong");
+          instructionsText.textContent = "To answer the questions, simply click the choice you wish to select. Correct answers will be highlighted in green."
+          instructions.appendChild(instructionsText);
+          document.getElementById("questions-container")?.appendChild(instructions);
+          const spacer = document.createElement("br");
+          document.getElementById("questions-container")?.appendChild(spacer);
+          // reset score
+          setScore(0);
+          // show score
+          document.getElementById("score-container")?.classList.remove("hidden");
           // Display the questions in the UI
           result.questions.forEach((question: any) => {
+            const questionElement = document.createElement("div");
             questionElement.className = "question";
             questionElement.setAttribute("attr-answer", question.answerKey);
 
             const listItems = Object.entries(question.choices).map(([key, value]) => {
-              return `<li data-key="${key}" style="cursor: pointer;">${key}: ${value}</li>`;
+              return `<li data-key="${key}" style="cursor: pointer; text-decoration:underline;">${key}: ${value}</li>`;
             }).join("");
             // Set the inner HTML of the question element
             questionElement.innerHTML = `
-              <p>${question.question}</p>
+              <p><strong>${question.question}</strong></p>
               <ul>${listItems}</ul>
             `;
 
@@ -67,6 +87,7 @@ export default function Home() {
 
                 if (selectedKey === correctKey) {
                   li.style.color = "green";
+                  setScore((prevScore) => prevScore + 1);
                 } else {
                   li.style.color = "red";
                 }
@@ -114,6 +135,7 @@ export default function Home() {
           <div className="text-gray-500">Processing your file...</div>
         </>
       )}
+      <div className="hidden" id="score-container">Score: {score}</div>
       <div id="questions-container"></div>
       <footer className="text-sm text-gray-500 mt-4">
         &copy; 2025 PDF Quiz Generator
